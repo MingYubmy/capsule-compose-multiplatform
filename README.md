@@ -1,1 +1,1 @@
-# capsule-compose-multiplatform
+# Capsule for Compose Multiplatform
