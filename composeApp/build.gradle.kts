@@ -1,4 +1,7 @@
+@file:OptIn(ExperimentalWasmDsl::class)
+
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -16,6 +19,9 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
+    js(IR) { browser() }
+    wasmJs { browser() }
+    jvm()
 
     listOf(
         iosX64(),
@@ -33,6 +39,9 @@ kotlin {
             implementation(libs.androidx.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
         }
+        jvmMain.dependencies {
+            implementation(compose.desktop.currentOs)
+        }
         commonMain.dependencies {
             implementation(libs.compose.material3)
             implementation(libs.compose.runtime)
@@ -46,13 +55,15 @@ kotlin {
             implementation(libs.navigation.compose)
             implementation(libs.lifecycle.runtime.compose)
             implementation(libs.material.icons.core)
+
+            implementation(project(":capsule"))
         }
     }
 }
 
 android {
     namespace = "dev.mingyubmy.capsule"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "dev.mingyubmy.capsule"

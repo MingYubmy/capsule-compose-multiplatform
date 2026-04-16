@@ -21,10 +21,6 @@ kotlin {
         minSdk = libs.versions.android.minSdk.get().toInt()
 
         withJava() // enable java compilation support
-        withHostTestBuilder {}.configure {}
-        withDeviceTestBuilder {
-            sourceSetTreeName = "test"
-        }
 
         compilations.configureEach {
             compilerOptions.configure {
@@ -56,10 +52,6 @@ kotlin {
             implementation(libs.compose.ui)
             implementation(libs.compose.components.resources)
             implementation(libs.compose.uiToolingPreview)
-        }
-
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
         }
     }
 }

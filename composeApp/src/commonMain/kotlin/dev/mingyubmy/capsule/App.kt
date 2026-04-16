@@ -14,10 +14,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 
 import capsule_compose_multiplatform.composeapp.generated.resources.Res
 import capsule_compose_multiplatform.composeapp.generated.resources.compose_multiplatform
+import dev.mingyubmy.capsule.continuities.G2Continuity
 
 @Composable
 @Preview
@@ -31,7 +33,9 @@ fun App() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(onClick = { showContent = !showContent }) {
+            val g2Shape = ContinuousRoundedRectangle(9999.dp, continuity = G2Continuity())
+
+            Button(shape = g2Shape, onClick = { showContent = !showContent }) {
                 Text("Click me!")
             }
             AnimatedVisibility(showContent) {
