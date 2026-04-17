@@ -13,7 +13,7 @@ Capsule for Compose Multiplatform is a Compose Multiplatform library that create
 In build.gradle.kts, add
 
 ```kotlin
-implementation("dev.mingyubmy:capsule-multiplatform:<version>")
+implementation("dev.mingyubmy:capsule-compose-multiplatform:<version>")
 ```
 
 ## Usages
