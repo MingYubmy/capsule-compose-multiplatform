@@ -1,4 +1,7 @@
+@file:OptIn(ExperimentalWasmDsl::class)
+
 import com.android.build.api.dsl.androidLibrary
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -10,13 +13,13 @@ plugins {
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
-group = "dev.mingyubmy.capsule"
+group = "dev.mingyubmy"
 version = "0.0.1"
 
 kotlin {
     jvm()
     androidLibrary {
-        namespace = "dev.mingyubmy.capsule.demo"
+        namespace = "dev.mingyubmy"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
 
@@ -66,26 +69,26 @@ mavenPublishing {
     pom {
         name = "capsule-compose-multiplatform"
         description = "A Capsule for Compose Multiplatform Library."
-        inceptionYear = "2024"
-        url = "https://github.com/kotlin/multiplatform-library-template/"
+        inceptionYear = "2026"
+        url = "https://github.com/MingYubmy/capsule-compose-multiplatform"
         licenses {
             license {
-                name = "XXX"
-                url = "YYY"
-                distribution = "ZZZ"
+                name = "Apache License 2.0"
+                url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "repo"
             }
         }
         developers {
             developer {
-                id = "XXX"
-                name = "YYY"
-                url = "ZZZ"
+                id = "mingyubmy"
+                name = "MingYubmy"
+                url = "https://github.com/MingYubmy"
             }
         }
         scm {
-            url = "XXX"
-            connection = "YYY"
-            developerConnection = "ZZZ"
+            url = "https://github.com/MingYubmy/capsule-compose-multiplatform"
+            connection = "scm:git:git://github.com/MingYubmy/capsule-compose-multiplatform.git"
+            developerConnection = "scm:git:ssh://git@github.com/MingYubmy/capsule-compose-multiplatform.git"
         }
     }
 }
