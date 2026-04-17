@@ -1,5 +1,9 @@
 # Capsule for Compose Multiplatform
 
+Based on the original project: [Capsule](https://github.com/Kyant0/Capsule)
+
+Original author: [Kyant0](https://github.com/kyant0)
+
 ![Maven Central](https://img.shields.io/maven-central/v/dev.mingyubmy/capsule)
 
 Capsule for Compose Multiplatform is a Compose Multiplatform library that creates G2 continuous rounded rectangles.
