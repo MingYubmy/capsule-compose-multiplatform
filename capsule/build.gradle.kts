@@ -64,7 +64,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates(group.toString(), "capsule", version.toString())
+    coordinates(group.toString(), "capsule-compose-multiplatform", version.toString())
 
     pom {
         name = "capsule-compose-multiplatform"
