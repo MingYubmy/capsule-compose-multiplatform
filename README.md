@@ -1,6 +1,6 @@
 # Capsule for Compose Multiplatform
 
-![Maven Central](https://img.shields.io/maven-central/v/dev.mingyubmy/capsule)
+![Maven Central](https://img.shields.io/maven-central/v/dev.mingyubmy/capsule-compose-multiplatform)
 
 Based on the original project: [Capsule](https://github.com/Kyant0/Capsule)
 
