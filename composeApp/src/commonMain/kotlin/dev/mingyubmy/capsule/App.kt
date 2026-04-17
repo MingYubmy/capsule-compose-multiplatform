@@ -27,6 +27,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
@@ -70,7 +71,7 @@ fun App() {
             topBar = {
                 TopAppBar(
                     title = { Text("Capsule") },
-                    subtitle = { Text("For Compose Multiplatform") },
+                    subtitle = { Text("Compose Multiplatform") },
                 )
             }
         ) { paddingValues ->
@@ -79,52 +80,54 @@ fun App() {
                     .padding(paddingValues)
                     .fillMaxSize(),
             ) {
-                Row {
-                    Card(
-                        modifier = Modifier
-                            .weight(1f)
-                            .fillMaxWidth()
-                            .padding(start = 8.dp, end = 2.dp)
-                            .height(120.dp),
-                        shape = RoundedCornerShape(
-                            topStart = 16.dp,
-                            topEnd = 4.dp,
-                            bottomStart = 16.dp,
-                            bottomEnd = 4.dp
-                        ),
-                    ) {
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center
+                Column {
+                    Row(modifier = Modifier.padding(top = 8.dp)) {
+                        Card(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxWidth()
+                                .padding(start = 8.dp, end = 2.dp)
+                                .height(120.dp),
+                            shape = RoundedCornerShape(
+                                topStart = 16.dp,
+                                topEnd = 4.dp,
+                                bottomStart = 16.dp,
+                                bottomEnd = 4.dp
+                            ),
                         ) {
-                            Button(shape = shape, onClick = { }) { Text("Button") }
+                            Box(
+                                modifier = Modifier.fillMaxSize(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Button(shape = shape, onClick = { }) { Text("Button") }
+                            }
                         }
-                    }
-                    Card(
-                        modifier = Modifier
-                            .weight(1f)
-                            .fillMaxWidth()
-                            .padding(start = 2.dp, end = 8.dp)
-                            .height(120.dp),
-                        shape = RoundedCornerShape(
-                            topStart = 4.dp,
-                            topEnd = 16.dp,
-                            bottomStart = 4.dp,
-                            bottomEnd = 16.dp
-                        )
-                    ) {
-                        Box(modifier = Modifier.fillMaxSize()) {
-                            Surface(
-                                modifier = Modifier
-                                    .offset(60.dp, 40.dp)
-                                    .fillMaxSize(),
-                                shape = shape.copy(
-                                    topEnd = CornerSize(0.dp),
-                                    bottomStart = CornerSize(0.dp),
-                                    bottomEnd = CornerSize(0.dp)
-                                ),
-                                color = MaterialTheme.colorScheme.primary
-                            ) { }
+                        Card(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxWidth()
+                                .padding(start = 2.dp, end = 8.dp)
+                                .height(120.dp),
+                            shape = RoundedCornerShape(
+                                topStart = 4.dp,
+                                topEnd = 16.dp,
+                                bottomStart = 4.dp,
+                                bottomEnd = 16.dp
+                            )
+                        ) {
+                            Box(modifier = Modifier.fillMaxSize()) {
+                                Surface(
+                                    modifier = Modifier
+                                        .offset(60.dp, 40.dp)
+                                        .fillMaxSize(),
+                                    shape = shape.copy(
+                                        topEnd = CornerSize(0.dp),
+                                        bottomStart = CornerSize(0.dp),
+                                        bottomEnd = CornerSize(0.dp)
+                                    ),
+                                    color = MaterialTheme.colorScheme.primary
+                                ) { }
+                            }
                         }
                     }
                 }
@@ -199,11 +202,13 @@ private fun TitleContainer(
     content: @Composable RowScope.() -> Unit
 ) {
     Row(modifier = Modifier.fillMaxWidth()) {
-        Row(
-            modifier = Modifier
-                .padding(top = 16.dp)
-                .padding(horizontal = 14.dp),
-            content = content
-        )
+        ProvideTextStyle(MaterialTheme.typography.titleMedium) {
+            Row(
+                modifier = Modifier
+                    .padding(top = 16.dp)
+                    .padding(horizontal = 14.dp),
+                content = content
+            )
+        }
     }
 }
